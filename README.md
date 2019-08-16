@@ -66,7 +66,6 @@ Example Playbook
 
 ---
 - hosts: localhost
-  connection: local
   gather_facts: false
   roles:
     - /path/aws_elb
