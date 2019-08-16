@@ -14,7 +14,7 @@ galaxy_info:
 #
   galaxy_tags:
     - aws
-    - Balancer
+    - cloud
     - amazon
     - elb
 #
