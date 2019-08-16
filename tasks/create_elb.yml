@@ -1,0 +1,30 @@
+---
+- name: Create Load Balancer
+  local_action:
+    module: ec2_elb_lb
+    aws_access_key: "{{ AWS_ACCESS_KEY }}"
+    aws_secret_key: "{{ AWS_SECRET_KEY }}"
+    region: "{{ AWS_REGION }}"
+    name: "{{ ELB_NAME }}"
+    state: present
+    zones: "{{ AWS_ZONE }}"
+    wait: true
+    security_group_names: "{{ SG_NAME }}"
+    listeners:
+      - protocol: "{{ LB_PROTO }}"
+        load_balancer_port: "{{ LB_PORT }}"
+        instance_port: "{{ INSTANCE_PORT }}"
+#If you have SSL Certificate stored in aws
+#      - protocol: "{{ LB_SSL_PROTO }}"
+#        load_balancer_port: "{{ LB_SSL_PORT }}"
+#        instance_port: "{{ LB_PORT }}"
+#        ssl_certificate_id: "arn:aws:iam::xxxxxx:server-certificate/domain_cert"
+    health_check:
+      ping_protocol: "{{ LB_PROTO }}" # option are http, https, sssl, tcp
+      ping_port: "{{ INSTANCE_PORT }}"
+      ping_path: "{{ FILE_FOR_CHECK }}"
+      response_timeout: 5 #seconds
+      interval: 30 #seconds
+      unhealthy_threshold: 2
+      healthy_threshold: 10
+...

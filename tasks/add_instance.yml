@@ -1,0 +1,22 @@
+---
+- name: get all ec2 instances
+  ec2_instance_facts:
+    aws_access_key: "{{ AWS_ACCESS_KEY }}"
+    aws_secret_key: "{{ AWS_SECRET_KEY }}"
+    region: "{{ AWS_REGION }}"
+    filters:
+      tag:Name: "{{ INSTANCE_TAG }}"
+  register: ec2
+#
+- name: Add existing EC2 instance to the ELB
+  local_action:
+    module: ec2_elb
+    aws_access_key: "{{ AWS_ACCESS_KEY }}"
+    aws_secret_key: "{{ AWS_SECRET_KEY }}"
+    region: "{{ AWS_REGION }}"
+    instance_id: "{{ item.instance_id }}"
+    ec2_elbs: "{{ ELB_NAME }}"
+    state: present
+  loop: "{{ ec2.instances }}"
+  ignore_errors: yes
+...

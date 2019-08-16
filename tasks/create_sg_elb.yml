@@ -1,0 +1,17 @@
+---
+- name: Create Security Group for ELB
+  ec2_group:
+    aws_access_key: "{{ AWS_ACCESS_KEY }}"
+    aws_secret_key: "{{ AWS_SECRET_KEY }}"
+    region: "{{ AWS_REGION }}"
+    vpc_id: "{{ VPC_ID }}"
+    name: "{{ SG_NAME }}"
+    description: "{{ DESC }}"
+    state: present
+    rules:
+      - proto: tcp
+        ports:
+          - 80
+          - 443
+        cidr_ip: "{{ SRC_IP }}"
+...   

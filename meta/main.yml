@@ -1,0 +1,22 @@
+---
+dependencies: []
+#
+galaxy_info:
+  author: acandid
+  description: Create Load Balancer and Add existing EC2 instance to the ELB 
+  company: "Almir Candido"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.8
+  platforms:
+    - name: aws
+      versions:
+        - elb
+#
+  galaxy_tags:
+    - aws
+    - cloud
+    - amazon
+    - Load Balancer
+    - elb
+#
+allow_duplicates: true

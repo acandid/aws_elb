@@ -1,0 +1,17 @@
+---
+# tasks file for aws_elb
+- name: Include credentials file variables
+  include_vars: aws_credentials.yml
+#
+- name: Include AWS variables
+  include_vars: aws_vars.yml
+#
+- name: Create Security Group ELB
+  import_tasks: create_sg_elb.yml
+#
+- name: Create Load Balancer
+  import_tasks: create_elb.yml
+#
+- name: Add existing EC2 instance to the ELB
+  import_tasks: add_instance.yml
+...

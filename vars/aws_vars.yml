@@ -1,0 +1,22 @@
+---
+# AWS Variables
+AWS_REGION:
+AWS_ZONE:
+VPC_ID:
+#
+INSTANCE_TAG:
+#
+# Security Group Variables
+SG_NAME:
+DESC:
+SRC_IP:
+#
+# Load Balancer Variables
+ELB_NAME: 
+LB_PROTO:
+LB_PORT:
+INSTANCE_PORT:
+#
+LB_SSL_PROTO:
+LB_SSL_PORT:
+FILE_FOR_CHECK:
