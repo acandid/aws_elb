@@ -16,7 +16,7 @@ galaxy_info:
     - aws
     - cloud
     - amazon
-    - Load Balancer
+    - Balancer
     - elb
 #
 allow_duplicates: true
