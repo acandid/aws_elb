@@ -1,4 +1,4 @@
-# Ansible Role: aws_ec2
+# Ansible Role: aws_elb
 =========
 
 A simple Ansible role for Create Load Balancer and Add existing EC2 instance to the ELB
