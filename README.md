@@ -19,7 +19,7 @@ Role Variables
 
 None of the variables below are required
 
-| Variables                                    | Default                       | Comments                                                                                  |                               |
+| Variables                                    | Default                       | Comments                                                                                 |                               
 | :---                                         | :---                          | :---
 | `AWS_ACCESS_KEY`			                       |                  			       | Inform AWS ACCESS KEY
 |                                              |                               |
